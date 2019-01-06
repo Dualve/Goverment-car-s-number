@@ -1,47 +1,23 @@
+from math import sqrt
+pit = []
+pit_cord = []
+x_s,y_s = map(int,input().split())
+way_s = 0
+x_d,y_d = map(int,input().split())
+way_d = 0
 number = int(input())
-registr = list(input() for _ in range(number))
-list1 = ["0","1","2","3","4","5","6","7","8","9"]
-list2 = ['A','B','C','E','H','K','M','O','P','T','X','Y']
-for i in range(len(registr)):
-    flag = False
-    for j in range(len(registr[i])):
+for i in range(number):
+    pit_cord = []
+    pit_cord = list(map(int,input().split()))
+    pit.append(pit_cord)
 
-        if j>6:
-            print("No")
-        
-        else:
-        
-            n = registr[i][j]
-            if j == 0 or j == 4 or j ==5:
-                counter = 0
-                
+for i in range(len(pit)):
+    way_s = sqrt(pow(pit[i][0] - x_s,2)+pow(pit[i][1] - y_s,2))
+    way_d = sqrt(pow(pit[i][0] - x_d,2)+pow(pit[i][1] - y_d,2))
 
-                for k in list2:
-                
-                    if n == k:
-                        break
-                    else:
-                        counter +=1
-                    
-                    if counter == 10:
-                        print("No")
-                        flag = True
-                        break
-            else:
-                
-                counter = 0
-                for k in list1:
-                
-                    if n == k:
-                        break
-                    else:
-                        counter +=1
+    if way_d/2 >= way_s:
+        print(i+1)
+        break
 
-                    if counter == 12:
-                        print("No")
-                        flag = True
-                        break
-        if flag:
-            break
-    else:
-        print("Yes")
+else:
+    print("NO")
