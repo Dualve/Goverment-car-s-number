@@ -1,0 +1,47 @@
+number = int(input())
+registr = list(input() for _ in range(number))
+list1 = ["0","1","2","3","4","5","6","7","8","9"]
+list2 = ['A','B','C','E','H','K','M','O','P','T','X','Y']
+for i in range(len(registr)):
+    flag = False
+    for j in range(len(registr[i])):
+
+        if j>6:
+            print("No")
+
+        else:
+
+            n = registr[i][j]
+            if j == 0 or j == 4 or j ==5:
+                counter = 0
+
+
+                for k in list2:
+
+                    if n == k:
+                        break
+                    else:
+                        counter +=1
+
+                    if counter == 10:
+                        print("No")
+                        flag = True
+                        break
+            else:
+
+                counter = 0
+                for k in list1:
+
+                    if n == k:
+                        break
+                    else:
+                        counter +=1
+
+                    if counter == 12:
+                        print("No")
+                        flag = True
+                        break
+        if flag:
+            break
+    else:
+        print("Yes")
